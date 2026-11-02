@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Class representing an individual Student
 class Student {
 private:
     int rollNo;
@@ -14,15 +13,13 @@ private:
     int classesAttended;
 
 public:
-    // Constructor to initialize student details
     Student(int r, string n) {
         rollNo = r;
         name = n;
         totalClasses = 0;
         classesAttended = 0;
     }
-
-    // Getters
+    
     int getRollNo() const {
         return rollNo;
     }
@@ -31,7 +28,6 @@ public:
         return name;
     }
 
-    // Function to mark attendance
     void markAttendance(bool present) {
         totalClasses++;
         if (present) {
@@ -39,7 +35,6 @@ public:
         }
     }
 
-    // Function to display student information and attendance percentage
     void display() const {
         double percentage = 0.0;
         if (totalClasses > 0) {
@@ -54,13 +49,11 @@ public:
     }
 };
 
-// Class managing the entire collection of students and operations
 class AttendanceManager {
 private:
     vector<Student> students;
 
 public:
-    // Add a new student
     void addStudent() {
         int rollNo;
         string name;
@@ -68,7 +61,6 @@ public:
         cout << "\nEnter Roll Number: ";
         cin >> rollNo;
 
-        // Check if roll number already exists
         for (size_t i = 0; i < students.size(); i++) {
             if (students[i].getRollNo() == rollNo) {
                 cout << "Error: A student with this Roll Number already exists!\n";
@@ -77,14 +69,13 @@ public:
         }
 
         cout << "Enter Student Name: ";
-        cin.ignore(); // Clear input buffer
+        cin.ignore(); 
         getline(cin, name);
 
         students.push_back(Student(rollNo, name));
         cout << "Student added successfully!\n";
     }
 
-    // Mark attendance for a specific student
     void markAttendance() {
         if (students.empty()) {
             cout << "\nNo students found in the system. Please add students first.\n";
@@ -116,7 +107,6 @@ public:
         cout << "Error: Student with Roll Number " << rollNo << " not found!\n";
     }
 
-    // View attendance report for all students
     void viewAttendanceReport() const {
         if (students.empty()) {
             cout << "\nNo student records available to display.\n";
@@ -140,7 +130,6 @@ public:
     }
 };
 
-// Main function providing the interactive menu
 int main() {
     AttendanceManager manager;
     int choice;
