@@ -14,6 +14,8 @@ const string DATA_FILE = "attendance.txt";
 const string CSV_FILE  = "attendance_report.csv";
 const double LOW_ATTENDANCE_LIMIT = 75.0;
 
+// Malakar 
+
 // Reads an integer safely (fixes the infinite loop bug)
 int readInt() {
     int value;
@@ -148,6 +150,8 @@ public:
         }
     }
 
+// Malakar 
+
     void loadFromFile() {
         ifstream in(DATA_FILE.c_str());
         if (!in) return;
@@ -238,6 +242,8 @@ public:
         saveToFile();
     }
 
+// Malakar 
+
     void markAllAttendance() {
         if (students.empty()) {
             cout << "\nNo students found in the system. Please add students first.\n";
@@ -306,6 +312,8 @@ public:
             cout << "\nNo student records available.\n";
             return;
         }
+
+// Malakar 
 
         string key;
         cout << "\nEnter Roll Number or part of Name to search: ";
